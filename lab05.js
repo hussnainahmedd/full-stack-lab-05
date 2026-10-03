@@ -29,8 +29,8 @@ function enrollStudent(name, ...courses) {
 
 const calculateAverageCGPA = (...cgpas) => {
   let sum = 0;
-  for (let i = 0; i < cgpas.length; i++) {
-    sum = sum + cgpas[i];
+  for (const cgpa of cgpas) {
+    sum += cgpa;
   }
   return sum / cgpas.length;
 };
@@ -159,9 +159,9 @@ function findStudent(rollNumber) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
       let found = null;
-      for (let i = 0; i < resultDatabase.length; i++) {
-        if (resultDatabase[i].rollNumber === rollNumber) {
-          found = resultDatabase[i];
+      for (const singleStudent of resultDatabase) {
+        if (singleStudent.rollNumber === rollNumber) {
+          found = singleStudent;
         }
       }
       if (found) {
