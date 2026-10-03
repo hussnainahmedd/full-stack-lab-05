@@ -2,19 +2,14 @@ export const DEPARTMENT_NAME = "Computer Science";
 
 export function calculateTotal(...marks) {
   let total = 0;
-  for (let i = 0; i < marks.length; i++) {
-    total = total + marks[i];
+  for (const mark of marks) {
+    total += mark;
   }
   return total;
 }
 
-export const calculateAverage = (...marks) => {
-  let total = 0;
-  for (let i = 0; i < marks.length; i++) {
-    total = total + marks[i];
-  }
-  return total / marks.length;
-};
+export const calculateAverage = (...marks) =>
+  calculateTotal(...marks) / marks.length;
 
 export function getGrade(marks) {
   if (marks >= 80) {
